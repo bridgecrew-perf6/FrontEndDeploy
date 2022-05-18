@@ -32,9 +32,7 @@ export default function AboutPage() {
         <div>
           <PhotoGrid evt={"/images/SupportPartners/bloodarmy.jpg"} />
           <PhotoGrid evt={"/images/SupportPartners/runners.jpg"} />
-          <PhotoGrid evt={"/images/SupportPartners/Aakraman.jpg"} />
           <PhotoGrid evt={"/images/SupportPartners/Friends.jpg"} />
-          <PhotoGrid evt={"/images/SupportPartners/Taas.jpg"} />
           <PhotoGrid evt={"/images/SupportPartners/vbdas.jpg"} />
           <PhotoGrid evt={"/images/SupportPartners/sai.jpg"} />
           <PhotoGrid evt={"/images/SupportPartners/Comp.png"} />
