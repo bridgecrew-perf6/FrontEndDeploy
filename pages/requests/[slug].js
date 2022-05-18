@@ -177,22 +177,8 @@ export default function EventPage({ evt }) {
     </Layout>
   );
 }
-/*
-export async function getServerSideProps({query:{slug}})
-{
-  
-  const res= await fetch(`${API_URL}/api/events/${slug}`);
 
-  const events= await res.json()
-  return{
 
-    props:{
-      evt:events[0],
-
-    },
-
-  }
-}*/
 export async function getStaticPaths() {
   const res = await fetch(`${API_URL}/events`);
   const events = await res.json();
