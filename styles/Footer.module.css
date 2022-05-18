@@ -6,18 +6,7 @@
   right: 0;
   top:100%;
   text-align: center;
-  -webkit-position: sticky;
- -moz-position:sticky;
-
- -webkit-bottom: 0; 
-  -webkit-left: 0; 
-  -webkit-right: 0;
-  -webkit-top:100%;
-
-  -moz-bottom: 0; 
-  -moz-left: 0; 
-  -moz-right: 0;
-  -moz-top:100%;
+  
 
   
   color: rgb(240, 222, 222);
@@ -91,18 +80,6 @@
       text-align: center;
      
 
- -webkit-position: sticky;
- -moz-position:sticky;
-
- -webkit-bottom: 0; 
-  -webkit-left: 0; 
-  -webkit-right: 0;
-  -webkit-top:100%;
-
-  -moz-bottom: 0; 
-  -moz-left: 0; 
-  -moz-right: 0;
-  -moz-top:100%;
       
       color: rgb(240, 222, 222);
       
