@@ -85,7 +85,7 @@ export default function Add({token}) {
       <form onSubmit={handleSubmit} className={styles.form} >
         <div className={styles.grid}>
           <div>
-            <label htmlFor="name">Contact Person's Name</label>
+            <label htmlFor="name">Contact Persons Name</label>
             <input
               type="text"
               id="name"
