@@ -70,17 +70,6 @@
     .text {
       font-size: 20px;
     }
-    .footer{
-      margin-top: auto;
-      position:sticky;
-      bottom: 0; 
-      left: 0; 
-      right: 0;
-      top:100%;
-      text-align: center;
-      
     
-    }
- 
     
   }
