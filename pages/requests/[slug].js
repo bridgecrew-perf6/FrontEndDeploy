@@ -132,7 +132,7 @@ export default function EventPage({ evt }) {
       <div className={styles.event}>
         <span>{new Date(evt.date).toLocaleDateString("en-UK")}</span>
 
-        <h1>Contact Persons Name:{evt.name}</h1>
+        <h1>Contact Person Name:{evt.name}</h1>
         <ToastContainer />
         {
           <div className="image">

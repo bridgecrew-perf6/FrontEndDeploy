@@ -30,8 +30,9 @@ export default function Footer() {
         </div>
         <div className={styles.card}>
           <h1 className={styles.title}>About</h1>
+          <p>Write Your Queries at sikkim.co.blood@gmail.com</p>
           <Link href="/about"> 
-           <a> about</a>
+           <a> about us</a>
           </Link>
         </div>
       </div>
