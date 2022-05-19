@@ -23,9 +23,9 @@ export default function EventPage({ evt }) {
       toast.error("Please Register as a donor first");
       return;
     } else {
-      let { username, email, BloodType, PhoneNumber, address } = user;
+      let { name, email, BloodType, PhoneNumber, address } = user;
       let donor = {
-        Name: username,
+        Name: name,
         Email: email,
         Address: address,
         Contact: PhoneNumber,
@@ -80,7 +80,7 @@ export default function EventPage({ evt }) {
           */
           const mes = `Congratulations!! You have received a Donor for the request of "${evt.name}"\n
          
-         Donor Details: ${donor.Name}\n
+         Donor Name: ${donor.Name}\n
          BloodType: ${donor.BloodType}\n
          Contact: ${donor.Contact}\n
          Address: ${donor.Address}
