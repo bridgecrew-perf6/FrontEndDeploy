@@ -5,7 +5,7 @@ import Link from "next/link";
 import BloodCamps from "../../components/BloodCamps";
 const PER_PAGE = 8;
 
-import Search from "../../components/Search";
+import SearchCamps from "../../components/SearchCamps";
 export default function CampsPage({ camps, page, total }) {
   const lastPage = Math.ceil(total / PER_PAGE);
 
@@ -13,7 +13,7 @@ export default function CampsPage({ camps, page, total }) {
     <Layout>
       <div className="divide">
         <h1>Upcoming Blood Donation Camps</h1>
-        <Search></Search>
+        <SearchCamps></SearchCamps>
         {camps.length !== 0 ? (
           <>
             {camps.map((evt) => (

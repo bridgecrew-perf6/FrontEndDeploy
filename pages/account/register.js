@@ -8,7 +8,8 @@ import Layout from "../../components/Layout";
 import AuthContext from "../../context/AuthContext";
 import styles from "../../styles/AuthForm.module.css";
 export default function RegisterPage() {
-  const [username, setUsername] = useState("");
+  const [name, setName] = useState("");
+  let [username, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirm, setPasswordConfirm] = useState("");
@@ -24,7 +25,10 @@ export default function RegisterPage() {
       toast.error("Passwords don't match");
       return;
     }
-    register({ username, email, password });
+    username = email;
+    // console.log(username);
+    // console.log(name);
+    register({ name, username, email, password });
   };
   return (
     <Layout title="Register Page">
@@ -36,13 +40,13 @@ export default function RegisterPage() {
         <ToastContainer />
         <form onSubmit={handleSubmit}>
           <div>
-            <label htmlFor="username">Enter Full Name</label>
+            <label htmlFor="name">Enter Full Name</label>
 
             <input
               type="text"
-              id="username"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              id="name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
               placeholder="FullName"
             ></input>
           </div>

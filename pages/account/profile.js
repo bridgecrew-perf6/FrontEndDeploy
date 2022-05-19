@@ -38,7 +38,7 @@ export default function Profile({ userRequest, token, userData }) {
   });
 
   const [userValues, setUserValues] = useState({
-    username: userData.username,
+    name: userData.name,
     email: userData.email,
     role: userData.role.type === "authenticated" ? "Non Donor" : "Blood Donor",
     PhoneNumber:userData.PhoneNumber,
@@ -73,6 +73,7 @@ export default function Profile({ userRequest, token, userData }) {
     if(userValues.role==="Non Donor")
     {
       userValues.role="1"
+      
     }
     else{
       userValues.role="3"
@@ -205,13 +206,14 @@ export default function Profile({ userRequest, token, userData }) {
         <form onSubmit={handleSubmit} className={styles2.form}>
           <div className={styles2.grid}>
             <div>
-              <label htmlFor="username">Name</label>
+              <label htmlFor="name">Name</label>
               <input
                 type="text"
-                id="username"
-                name="username"
-                value={userValues.username}
+                id="name"
+                name="name"
+                value={userValues.name}
                 onChange={handleInputChange}
+                required
                 disabled={disabled}
               ></input>
             </div>
@@ -225,6 +227,7 @@ export default function Profile({ userRequest, token, userData }) {
                 onChange={handleInputChange}
                 disabled={disabled}
                 
+                
               ></input>
             </div>
             <div>
@@ -234,8 +237,9 @@ export default function Profile({ userRequest, token, userData }) {
                 id="email"
                 name="email"
                 value={userValues.email}
+                required
                 onChange={handleInputChange}
-                disabled={disabled}
+                disabled
                 
               ></input>
               
@@ -246,12 +250,13 @@ export default function Profile({ userRequest, token, userData }) {
                 type="tel"
                 id="PhoneNumber"
                 name="PhoneNumber"
+               
                  pattern="[0-9]{10}"
                 value={userValues.PhoneNumber}
                 onChange={handleInputChange}
                
                 disabled={disabled}
-                required
+                
               ></input>
             </div>
             <div>
