@@ -130,7 +130,7 @@ export default function RegisterDonor({token}) {
           <div>
             <label htmlFor="Address">Address</label>
             <input
-              type="tel"
+              type="text"
               id="address"
               name="address"
              

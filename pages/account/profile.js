@@ -18,12 +18,11 @@ import { useContext } from "react";
 import styles2 from "../../styles/Form.module.css";
 export default function Profile({ userRequest, token, userData }) {
   const router = useRouter();
-  const[disabled,setDisabled]=useState(true);
- // console.log(userData);
+  const [disabled, setDisabled] = useState(true);
+  // console.log(userData);
 
- 
   const { user } = useContext(AuthContext);
-  
+
   const [imagePreview, setimagePreview] = useState(
     userData.ProfilePicture
       ? userData.ProfilePicture.formats.thumbnail.url
@@ -33,17 +32,18 @@ export default function Profile({ userRequest, token, userData }) {
   const [showModal, setShowModal] = useState(false);
   const [values, setValues] = useState({
     role: "1",
-    BloodType: "",
-    PhoneNumber:null,
+    BloodType: null,
+    PhoneNumber: null,
+    address: null,
   });
 
   const [userValues, setUserValues] = useState({
     name: userData.name,
     email: userData.email,
     role: userData.role.type === "authenticated" ? "Non Donor" : "Blood Donor",
-    PhoneNumber:userData.PhoneNumber,
-    BloodType:userData.BloodType,
-    address:userData.address
+    PhoneNumber: userData.PhoneNumber,
+    BloodType: userData.BloodType,
+    address: userData.address,
   });
 
   const deleteEvent = async (id) => {
@@ -70,27 +70,27 @@ export default function Profile({ userRequest, token, userData }) {
     const hasEmptyFields = Object.values(userValues).some(
       (element) => element === ""
     );
-    if(userValues.role==="Non Donor")
-    {
-      userValues.role="1"
+    if (userValues.role === "Non Donor" || userValues.role === "1") {
+      userValues.role = "1";
       
+      
+    } else if (userValues.role === "Blood Donor" || userValues.role === "3") {
+      userValues.role = "3";
+      if (userValues.PhoneNumber.length !== 10) {
+        toast.error("Please check your phone number");
+        // console.log("Please fill in all the fields");
+        return;
+      }
     }
-    else{
-      userValues.role="3"
-    }
-   // console.log(userValues);
+    // console.log(userValues);
 
     if (hasEmptyFields) {
+      console.log(userValues);
       toast.error("Please fill in all the fields");
       // console.log("Please fill in all the fields");
       return;
     }
-    if(userValues.PhoneNumber.length!==10)
-    {
-      toast.error("Please check your phone number");
-      // console.log("Please fill in all the fields");
-      return;
-    }
+    //console.log(userValues.role);
 
     const res = await fetch(`${API_URL}/users/${user.id}`, {
       method: "PUT",
@@ -108,9 +108,7 @@ export default function Profile({ userRequest, token, userData }) {
       toast.error("Something went wrong");
     } else {
       const evt = await res.json();
-      alert(
-        "Your Profile has been Updated."
-      );
+      alert("Your Profile has been Updated.");
       router.reload();
     }
   };
@@ -159,42 +157,43 @@ export default function Profile({ userRequest, token, userData }) {
     setimagePreview(data.ProfilePicture.formats.thumbnail.url);
     setShowModal(false);
   };
-  const handledisabled=(e)=>{
+  const handledisabled = (e) => {
     e.preventDefault();
     alert("You can edit your profile");
     setDisabled(false);
-  }
-    const handleEnabled=(e)=>{
-      e.preventDefault();
-      
-      setDisabled(true);
+  };
+  const handleEnabled = (e) => {
+    e.preventDefault();
 
-
-  }
+    setDisabled(true);
+  };
   return (
     <Layout title="User Profile">
       <div className={styles.dash}>
         <div className={styles.upper}>
-        <h1>Your Profile</h1>
-        {imagePreview ? (
-          <Image
-            src={imagePreview}
-            height={150}
-            width={150}
-            className={styles2.Image}
-          />
-        ) : (
+          <h1>Your Profile</h1>
+          {imagePreview ? (
+            <Image
+              src={imagePreview}
+              height={150}
+              width={150}
+              className={styles2.Image}
+            />
+          ) : (
+            <div>
+              <p>No Image Uploaded</p>
+            </div>
+          )}
           <div>
-            <p>No Image Uploaded</p>
+            <button
+              onClick={() => setShowModal(true)}
+              className="btn-secondary"
+            >
+              <FaImage />
+              Upload a Picture
+            </button>
+            <br></br> <br></br> <br></br>
           </div>
-        )}
-        <div>
-          <button onClick={() => setShowModal(true)} className="btn-secondary">
-            <FaImage />
-            Upload a Picture
-          </button>
-          <br></br> <br></br> <br></br>
-        </div>
         </div>
         <Modal show={showModal} onClose={() => setShowModal(false)}>
           <ImageUpload
@@ -213,23 +212,12 @@ export default function Profile({ userRequest, token, userData }) {
                 name="name"
                 value={userValues.name}
                 onChange={handleInputChange}
+                
+                disabled={disabled}
                 required
-                disabled={disabled}
               ></input>
             </div>
-            <div>
-              <label htmlFor="address">Address</label>
-              <input
-                type="text"
-                id="address"
-                name="address"
-                value={userValues.address}
-                onChange={handleInputChange}
-                disabled={disabled}
-                
-                
-              ></input>
-            </div>
+            
             <div>
               <label htmlFor="email">Email</label>
               <input
@@ -242,32 +230,22 @@ export default function Profile({ userRequest, token, userData }) {
                 disabled
                 
               ></input>
-              
             </div>
-            <div>
-              <label htmlFor="PhoneNumber">PhoneNumber</label>
-              <input
-                type="tel"
-                id="PhoneNumber"
-                name="PhoneNumber"
-               
-                 pattern="[0-9]{10}"
-                value={userValues.PhoneNumber}
-                onChange={handleInputChange}
-               
-                disabled={disabled}
-                
-              ></input>
-            </div>
+           
             <div>
               <label htmlFor="role">Account Type</label>
               <input
                 type="text"
                 id="role"
                 name="role"
-                value={userValues.role}
+                value={
+                  userValues.role === "3" || userValues.role === "Blood Donor"
+                    ? "Blood Donor"
+                    : "Non Donor"
+                }
                 onChange={handleInputChange}
                 disabled
+                required
               ></input>
               {userData.role.type === "authenticated" ? (
                 <h6>
@@ -276,47 +254,102 @@ export default function Profile({ userRequest, token, userData }) {
                   </Link>
                 </h6>
               ) : (
-                <span><a  onClick={handleunregister} ><h6>Back out as Blood Donor?</h6>
-                
-              </a></span>
+                <span>
+                  <a onClick={handleunregister}>
+                    <h6>Back out as Blood Donor?</h6>
+                  </a>
+                </span>
               )}
             </div>
-            {userData.role.type==="authenticated"?(<></>):(<><div>
-            <label htmlFor="BloodType">Blood Type</label>
-            <select
-              className="blood"
-              type="Text"
-              id="BloodType"
-              name="BloodType"
-              value={userValues.BloodType}
-              onChange={handleInputChange}
-              disabled={disabled}
-            >
-              <option></option>
-              <option value="A+">A+</option>
-              <option value="B+">B+</option>
-              <option value="O+">O+</option>
-              <option value="AB+">AB+</option>
-              <option value="AB-">AB-</option>
-              <option value="A-">A-</option>
-              <option value="B-">B-</option>
-              <option value="O-">O-</option>
-            </select>
-          </div></>)}
-            
+            {userData.role.type === "authenticated" ? (
+              <></>
+            ) : (
+
+              <>
+              <div>
+              <label htmlFor="address">Address</label>
+              <input
+                type="text"
+                id="address"
+                name="address"
+                value={userValues.address}
+                onChange={handleInputChange}
+                disabled={disabled}
+                required
+              ></input>
+            </div>
+               <div>
+              <label htmlFor="PhoneNumber">PhoneNumber</label>
+              <input
+                type="tel"
+                id="PhoneNumber"
+                name="PhoneNumber"
+                pattern="[0-9]{10}"
+                value={userValues.PhoneNumber}
+                onChange={handleInputChange}
+                disabled={disabled}
+                required
+              ></input>
+            </div>
+                <div>
+                  <label htmlFor="BloodType">Blood Type</label>
+                  <select
+                    className="blood"
+                    type="Text"
+                    id="BloodType"
+                    name="BloodType"
+                    value={userValues.BloodType}
+                    onChange={handleInputChange}
+                    disabled={disabled}
+                    required
+                  >
+                    <option></option>
+                    <option value="A+">A+</option>
+                    <option value="B+">B+</option>
+                    <option value="O+">O+</option>
+                    <option value="AB+">AB+</option>
+                    <option value="AB-">AB-</option>
+                    <option value="A-">A-</option>
+                    <option value="B-">B-</option>
+                    <option value="O-">O-</option>
+                  </select>
+                </div>
+              </>
+            )}
           </div>
           <br></br>
-          {disabled===false?<><button className="btn-secondary" type="submit" onClick={handleSubmit}> 
-            Save Changes
-          </button></>:<></>}
-          
+          {disabled === false ? (
+            <>
+              <button
+                className="btn-secondary"
+                type="submit"
+                onClick={handleSubmit}
+              >
+                Save Changes
+              </button>
+            </>
+          ) : (
+            <></>
+          )}
         </form>
-        
-        {disabled===false?<><button className="btn-secondary" onClick={handleEnabled}>Cancel</button></>:<><button className="btn-secondary" onClick={handledisabled}>Edit Profile</button></>}
-     
+
+        {disabled === false ? (
+          <>
+            <button className="btn-secondary" onClick={handleEnabled}>
+              Cancel
+            </button>
+          </>
+        ) : (
+          <>
+            <button className="btn-secondary" onClick={handledisabled}>
+              Edit Profile
+            </button>
+          </>
+        )}
+
         <ToastContainer />
         <br></br>
-        
+
         <h3>My Requests</h3>
         {userRequest.length !== 0 ? (
           <>
