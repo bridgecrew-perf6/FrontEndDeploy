@@ -43,8 +43,8 @@ export default function EventPage({ evt }) {
       }
 
       for (let i = 0; i < data.Donors.length; i++) {
-       // console.log(data.Donors[i]);
-       // console.log(donor);
+        // console.log(data.Donors[i]);
+        // console.log(donor);
         if (JSON.stringify(data.Donors[i]) === JSON.stringify(donor)) {
           toast.error("You have already responded to the request");
           return;
@@ -194,18 +194,13 @@ export async function getStaticProps({ params: { slug } }) {
     revalidate: 1,
   };
 }*/
-export async function getServerSideProps({query:{slug}})
-{
-  
-  const res= await fetch(`${API_URL}/events?slug=${slug}`);
+export async function getServerSideProps({ query: { slug } }) {
+  const res = await fetch(`${API_URL}/events?slug=${slug}`);
 
-  const events= await res.json()
-  return{
-
-    props:{
-      evt:events[0],
-
+  const events = await res.json();
+  return {
+    props: {
+      evt: events[0],
     },
-
-  }
+  };
 }
