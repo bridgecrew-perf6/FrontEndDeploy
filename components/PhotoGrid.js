@@ -9,8 +9,8 @@ function PhotoGrid({ evt}) {
         <Image
           className={styles.img}
           src={evt}
-          width={150}
-          height={150}
+          width={200}
+          height={200}
           alt=""
         ></Image>
       </div>
