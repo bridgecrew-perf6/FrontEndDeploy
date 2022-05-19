@@ -5,7 +5,7 @@ export default function SendMessage(req, res) {
   const token = process.env.TWILIO_AUTH_TOKEN;
   const client = twilio(accountSid, token);
   const { phone, mes } = req.body;
-  console.log(phone, mes);
+  //console.log(phone, mes);
   client.messages
     .create({
       body: mes,

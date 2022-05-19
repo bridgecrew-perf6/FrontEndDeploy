@@ -1,7 +1,7 @@
 import React from "react";
 import { useRouter } from "next/router";
 import Layout from "../../components/Layout";
-import { API_URL } from "../../config";
+import { API_URL, APP_URL } from "../../config";
 import styles from "../../styles/Request.module.css";
 import Link from "next/link";
 import Image from "next/image";
@@ -15,6 +15,7 @@ import { useContext } from "react";
 export default function EventPage({ evt }) {
   const { user } = useContext(AuthContext);
   const router = useRouter();
+  console.log(APP_URL);
 
   const handleRespond = async () => {
     // console.log(user);
@@ -26,9 +27,9 @@ export default function EventPage({ evt }) {
       let donor = {
         Name: username,
         Email: email,
-        BloodType: BloodType,
-        Contact: PhoneNumber,
         Address: address,
+        Contact: PhoneNumber,
+        BloodType: BloodType,
       };
       //console.log(donor);
       //if blood donor
@@ -42,6 +43,8 @@ export default function EventPage({ evt }) {
       }
 
       for (let i = 0; i < data.Donors.length; i++) {
+       // console.log(data.Donors[i]);
+       // console.log(donor);
         if (JSON.stringify(data.Donors[i]) === JSON.stringify(donor)) {
           toast.error("You have already responded to the request");
           return;
@@ -88,7 +91,7 @@ export default function EventPage({ evt }) {
          
          
          `;
-          console.log(mes);
+          //console.log(mes);
           const phone = "+91" + evt.Phone;
 
           const res = await fetch(`${APP_URL}/api/sendMessage`, {
@@ -114,18 +117,6 @@ export default function EventPage({ evt }) {
       //console.log(user);
     }
   };
-
-
-
-
-
-
-
-
-
-
-          
-  
 
   return (
     <Layout title={router.query.slug}>
@@ -177,8 +168,7 @@ export default function EventPage({ evt }) {
     </Layout>
   );
 }
-
-
+/*
 export async function getStaticPaths() {
   const res = await fetch(`${API_URL}/events`);
   const events = await res.json();
@@ -203,4 +193,19 @@ export async function getStaticProps({ params: { slug } }) {
     },
     revalidate: 1,
   };
+}*/
+export async function getServerSideProps({query:{slug}})
+{
+  
+  const res= await fetch(`${API_URL}/events?slug=${slug}`);
+
+  const events= await res.json()
+  return{
+
+    props:{
+      evt:events[0],
+
+    },
+
+  }
 }
