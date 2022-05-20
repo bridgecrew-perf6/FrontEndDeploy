@@ -75,7 +75,7 @@ export default function Add({ token }) {
   };
   return (
     <Layout title="Request Blood">
-      <Link href="/events">&lt;Back</Link>
+      <Link href="/requests">&lt;Back</Link>
       <h1>Request</h1>
       <ToastContainer />
 

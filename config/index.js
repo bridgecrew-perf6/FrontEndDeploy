@@ -4,4 +4,4 @@ export const API_URL =
 
 //Frontend url
 export const APP_URL =
-  process.env.NEXT_PUBLIC_APP_URL || "https://blood.sikkim.co";
+  process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";

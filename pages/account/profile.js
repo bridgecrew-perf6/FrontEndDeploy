@@ -256,7 +256,7 @@ export default function Profile({ userRequest, token, userData }) {
               ) : (
                 <span>
                   <a onClick={handleunregister}>
-                    <h6>Back out as Blood Donor?</h6>
+                    <h4>Back out as Blood Donor?</h4>
                   </a>
                 </span>
               )}
