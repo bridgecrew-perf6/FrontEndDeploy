@@ -41,7 +41,7 @@ export default function BloodCamps({ evt }) {
         <br></br>
         <br></br>
         <WhatsappShareButton
-          url={`${APP_URL}/requests/${evt.slug}`}
+          url={`${APP_URL}/camps/${evt.slug}`}
           quote={`OnGoing Blood Camp: ${evt.Name}`}
           hashtag={"#Blood.Sikkim.Co"}
         >
@@ -49,7 +49,7 @@ export default function BloodCamps({ evt }) {
         </WhatsappShareButton>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <FacebookShareButton
-          url={`${APP_URL}/requests/${evt.slug}`}
+          url={`${APP_URL}/camps/${evt.slug}`}
           quote={`Blood Request for ${evt.Name}`}
           hashtag={"#Blood.Sikkim.Co"}
         >
