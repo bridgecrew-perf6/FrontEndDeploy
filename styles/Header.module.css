@@ -8,7 +8,6 @@
     padding: 0 30px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     
-    margin-bottom: 50px;
 }
 .header a {
   color: #333;
@@ -32,7 +31,7 @@
   list-style: none;
 }
 .logo a {
-  color: red;
+  color: #D22B2B;
 }
 
 
@@ -72,7 +71,7 @@
       background-color: rgb(255, 251, 251);
       width: 100%;
       align-content: center;
-      text-align: center;
+      text-align: left;
       transition: 0.3s;
       box-shadow:
       
@@ -133,14 +132,10 @@
   }
   .help
   {
-      display: flex;
-      
-    
+      display: flex; 
   }
   .ico
   {
     width:40px;
     height: 40px;
   }
-   
-

@@ -3,7 +3,13 @@ import {FaDownload,FaTimes} from "react-icons/fa"
 import styles from "../styles/ProfileRequest.module.css";
 import { useState } from "react";
 import React from 'react'
-
+import {
+  FacebookShareButton,
+  WhatsappShareButton,
+  WhatsappIcon,
+  FacebookIcon,
+} from "react-share";
+import { APP_URL } from "../config/index";
 export default function ProfileRequest({evt,handleDelete}) {
   
   let len;
@@ -62,7 +68,27 @@ export default function ProfileRequest({evt,handleDelete}) {
         <a href="#" className={styles.delete} onClick={()=>handleDelete(evt.id)}>
         <FaTimes/><span>Cancel Request</span>
         </a>
+        <br></br>
+        <br></br>
+        <div className="divide">
+        <WhatsappShareButton
+          url={`${APP_URL}/requests/${evt.slug}`}
+          quote={`Blood Request: ${evt.Name}`}
+          hashtag={"#Blood.Sikkim.Co"}
+        >
+          <WhatsappIcon size={40} round={true} />
+        </WhatsappShareButton>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <FacebookShareButton
+          url={`${APP_URL}/requests/${evt.slug}`}
+          quote={`Blood Request: ${evt.Name}`}
+          hashtag={"#Blood.Sikkim.Co"}
+        >
+          <FacebookIcon size={40} round={true} />
+        </FacebookShareButton>
 
+        </div>
+        
 
 
 

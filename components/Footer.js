@@ -1,42 +1,70 @@
-import Link from "next/link"
+import React from "react";
 import styles from "../styles/Footer.module.css";
-import Image from "next/image";
-export default function Footer() {
+import { ImFacebook } from "react-icons/im";
+import { FiYoutube, FiTwitter } from "react-icons/fi";
+import { CgInstagram } from "react-icons/cg";
+import Link from "next/link";
+function Footer() {
   return (
-    <footer className={styles.footer}>
-     <div className={styles.container}>
-      <div className={styles.item}>
-        <Image src="/images/Foot.png" width="400" height="50" alt="" priority/>
-      </div>
-      <div className={styles.item}>
-        <div className={styles.card}>
-          <h2 className={styles.motto}>
-            Donate Blood, Save Many Lives.
-          </h2>
-        </div>
-        <div className={styles.card}>
-          <h1 className={styles.title}>Hospitals</h1>
-          <p className={styles.text}>
-            Stnm Hospital,
-            <br /> Sochakgang, East Sikkim
-            <br /> 737101
+    <div>
+      <footer className={styles.footerdistributed}>
+        <div className={styles.footerleft}>
+          <h3>
+            <span>Blood</span>.Sikkim.<span>Co</span>
+          </h3>
+          <p className={styles.footerlinks}>
+            <Link href="camps">
+              <a>Blood Donation Camp</a>
+            </Link>
+            <br />
+            <Link href="requests">
+              <a>Active Requirement</a>
+            </Link>
+            <br />
+            <Link href="about">
+              <a>About Us</a>
+            </Link>
           </p>
-          <p className={styles.text}>
-            Manipal Hospital
-            <br /> Tadong, East Sikkim
-            <br /> 737101
+          <p className={styles.footercompanyname}>
+            <a href="https://nedevelopers.in">NE Developers © 2022</a>
           </p>
-          
         </div>
-        <div className={styles.card}>
-          <h1 className={styles.title}>About</h1>
-          <p>Write Your Queries at sikkim.co.blood@gmail.com</p>
-          <Link href="/about"> 
-           <a> about us</a>
-          </Link>
+
+        <div className={styles.footerright}>
+          <br />
+          <p>You may list your queries at:</p>
+          <br />
+          <p>sikkim.co.blood@gmail.com</p>
+
+          <div className={styles.footericons}>
+            <a href="https://www.facebook.com/nedevelopers">
+              <i className={styles.twitter}>
+                {" "}
+                <ImFacebook />{" "}
+              </i>
+            </a>
+            <a href="https://www.instagram.com/nedevelopers">
+              <i className={styles.github}>
+                {" "}
+                <CgInstagram />{" "}
+              </i>
+            </a>
+            <a href="https://www.youtube.com/channel/UC7ZRzsMvFz1k9aiElHgTKFw">
+              <i className={styles.linkedin}>
+                {" "}
+                <FiYoutube />{" "}
+              </i>
+            </a>
+            <a href="https://twitter.com/nedevelopers">
+              <i className={styles.facebook}>
+                <FiTwitter />{" "}
+              </i>
+            </a>
+          </div>
         </div>
-      </div>
+      </footer>
     </div>
-  </footer>
-  )
+  );
 }
+
+export default Footer;

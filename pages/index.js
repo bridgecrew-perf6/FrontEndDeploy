@@ -21,14 +21,15 @@ export default function HomePage({ events }) {
   return (
     <Layout>
      
-      <div ><Link href={lin}><a className="btn-secondary">Register as a donor</a></Link></div>
+      <div className="divide"><Link href={lin}><a className="btn-secondary">Register as a donor</a></Link></div>
       
       <br></br>
       <br></br>
     
     
-      <h1>Emergency Requests:</h1>
+      
       <div className="divide">
+      <h1>Emergency Requests:</h1>
       {events.length!==0?(
     <>
       {events.map((evt) => (
@@ -42,6 +43,7 @@ export default function HomePage({ events }) {
     )}
 
       <div className="divide">
+        <br></br>
         {events.length > 0 && (
           <Link href="/requests">
             <a className="btn-secondary">View All Requests</a>

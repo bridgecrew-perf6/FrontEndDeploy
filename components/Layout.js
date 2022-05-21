@@ -21,7 +21,7 @@ export default function Layout({ title, keywords, description, children }) {
     <div className={styles.container}>
         {children}
     </div>
-    <div className={styles.dve}>
+    <div >
     <Footer/>
     </div>
   

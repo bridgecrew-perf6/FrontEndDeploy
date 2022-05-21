@@ -38,6 +38,11 @@ export default function CampsPage({ camps, page, total }) {
               <a className="btn-secondary">Next</a>
             </Link>
           )}
+          <div>
+            <br/>
+            <a href="https://api.whatsapp.com/send/?phone=919894178970&text&app_absent=0https://api.whatsapp.com/send/?phone=919894178970&text&app_absent=0">In order to list your nearby Blood Donation Camps,
+              <br/> Contact: +91-9894178970</a>
+          </div>
 
           <div>
             <br></br>

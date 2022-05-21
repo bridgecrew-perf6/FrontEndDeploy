@@ -30,24 +30,19 @@
   
   border: 10px solid#dd0e0e;
   border-style: double;
-  border-radius: 25px;
+  border-radius: 40px;
   
   -webkit-box-flex: 0;
   flex: 0 1 250px;
   max-width:206px;
   height: 137.5px;
-  margin: 60px 12.5px 0px;
-  position: relative;
+  margin: 60px 20px 0px;
+  position:relative;
   text-align: center;
   z-index: 1;
   box-shadow: 0px 0px 15px 0 rgba(0,0,0,0.1);
-  margin-bottom: 50px;
-  
-  
-  
-  
-  
-  
+  margin-bottom: 60px;
+
 }
 .honeycombcell_img
 {
@@ -69,15 +64,16 @@
   hyphens: auto;
   word-break: break-word;
   text-transform: uppercase;
-  color: #fff;
+  color: white;
   font-weight: 700;
   font-size: 1.0em;
   transition: opacity 350ms;
+  
 }
-.honeycombcell_title:hover::after
+/* .honeycombcell_title:hover::after
 {
-  content: attr(datahover);
-}
+ content: attr(datahover); }*/
+
 .honeycombcell_title > small
 {
   font-weight: 200;
@@ -86,7 +82,7 @@
 .honeycombcell::before,
 .honeycombcell::after
 {
- content: "";
+ content:""; 
 }
 
 
@@ -110,18 +106,15 @@
 }
 .honeycombcell::before
 {
-  background: #fff;
-  transform: scale(1.055);
-  
+  background: #880808;
+  transform: scale(1.033);
 }
 .honeycombcell::after
 {
-  background: #111111;
+  background: rgb(218, 2, 2);
   opacity: 0.7;
   transition: opacity 350ms;
   -webkit-transition: opacity 350ms;
-  
-  
 }
 
 .honeycombcell:hover
@@ -133,20 +126,18 @@
 }
 .honeycombcell:hover::before
 {
-  background: #fc5130;
+  background: #444;
   
 }
-
+/* here white */
 .honeycombcell:hover::after
 {
-  opacity: 0;
-  
-
-  
+  opacity: 0;  
 }
 
 
-/****** Responsive *******/
+/** Responsive ***/
+
 
 @media (max-width: 550px) 
 {
@@ -193,13 +184,10 @@
   }
 
   .honeycombcell:nth-child(7n + 7), 
-  .honeycombcell:nth-child(7n + 5):nth-last-child(2) 
+  .honeycombcell:nth-child(7n + 5):nth-last-child(3) 
   {
     margin-right: calc(50% - 400px);
   }
 
   
 }
-
-
-

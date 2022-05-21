@@ -35,6 +35,10 @@
     width: 100%;
     font-size: 17px;
   }
+  .auth select{
+    width: 50% ;
+    height: 30px;
+  }
   
   .auth div {
     margin-bottom: 20px;
@@ -55,3 +59,10 @@
   {
     padding: 10px;
   }
+  @media (max-width: 1200px) {
+    .auth{
+      text-align: center;
+    }
+  
+  }
+  

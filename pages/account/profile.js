@@ -172,28 +172,7 @@ export default function Profile({ userRequest, token, userData }) {
       <div className={styles.dash}>
         <div className={styles.upper}>
           <h1>Your Profile</h1>
-          {imagePreview ? (
-            <Image
-              src={imagePreview}
-              height={150}
-              width={150}
-              className={styles2.Image}
-            />
-          ) : (
-            <div>
-              <p>No Image Uploaded</p>
-            </div>
-          )}
-          <div>
-            <button
-              onClick={() => setShowModal(true)}
-              className="btn-secondary"
-            >
-              <FaImage />
-              Upload a Picture
-            </button>
-            <br></br> <br></br> <br></br>
-          </div>
+         <br></br>
         </div>
         <Modal show={showModal} onClose={() => setShowModal(false)}>
           <ImageUpload
@@ -319,7 +298,7 @@ export default function Profile({ userRequest, token, userData }) {
           </div>
           <br></br>
           {disabled === false ? (
-            <>
+            <div className="divide">
               <button
                 className="btn-secondary"
                 type="submit"
@@ -327,24 +306,27 @@ export default function Profile({ userRequest, token, userData }) {
               >
                 Save Changes
               </button>
-            </>
+              <br></br>
+              <br></br>
+            </div>
           ) : (
             <></>
           )}
         </form>
 
         {disabled === false ? (
-          <>
+          <div className="divide">
             <button className="btn-secondary" onClick={handleEnabled}>
               Cancel
             </button>
-          </>
+           
+          </div>
         ) : (
-          <>
+          <div className="divide">
             <button className="btn-secondary" onClick={handledisabled}>
               Edit Profile
             </button>
-          </>
+          </div>
         )}
 
         <ToastContainer />

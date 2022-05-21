@@ -75,8 +75,9 @@ export default function Add({ token }) {
   };
   return (
     <Layout title="Request Blood">
-      <Link href="/requests">&lt;Back</Link>
-      <h1>Request</h1>
+      <div>
+        <Link href="/requests">&lt;Back</Link>
+      <h1 className="divide">Request</h1>
       <ToastContainer />
 
       <form onSubmit={handleSubmit} className={styles.form}>
@@ -193,9 +194,15 @@ export default function Add({ token }) {
             placeholder="We would like to know more about your Request"
           ></textarea>
         </div>
-
+        
         <input type="submit" value="Post Request" className="btn"></input>
       </form>
+
+
+
+
+      </div>
+      
     </Layout>
   );
 }

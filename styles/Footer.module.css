@@ -1,76 +1,125 @@
-.footer {
-  margin-top: auto;
-  position:sticky;
-  bottom: 0; 
-  left: 0; 
-  right: 0;
-  top:100%;
-  text-align: center;
-  
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
 
-  
-  color: rgb(240, 222, 222);
-  
+.footerdistributed{
+	background: #444;
+	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+	box-sizing: border-box;
+	width: 100%;
+	font: bold 16px sans-serif;
+	text-align: left;
+	padding: 50px 60px 40px;
+	overflow: hidden;
 }
 
 
-.container {
-    height: 100%;
-    background-color: #222;
-    display: flex;
-  }
-  
-  .item {
-    flex: 1;
-    position: relative;
-    display: flex;
-  }
-  
-  .item:last-child {
-    flex: 2;
-    padding: 50px;
-    justify-content: space-between;
-  }
-  
-  .card {
-    flex: 1;
-    padding: 0 20px;
-  }
-  
-  .title {
-    font-size: 18px;
-    color: #d41414;
-  }
-  
-  .text {
-    color: lightgray;
-  }
-  
-  .motto {
-    color: rgb(211, 211, 211);
-  }
-  
-  @media screen and (max-width: 1200px)   {
-    .container {
-      height: auto;
-      text-align: center;
-    }
-    .item:first-child {
-      display: none;
-    }
-  
-    .item {
-      flex-direction: column;
-    }
-  
-    .title {
-      font-size: 30px;
-    }
-  
-    .text {
-      font-size: 20px;
-    }
-  
- 
+/* Footer left */
+
+.footerdistributed .footerleft{
+	float: left;
+}
+
+/* The company logo */
+
+.footerdistributed h3{
+	color:  #ffffff;
+	font: normal 36px 'Roboto', cursive;
+	margin: 0 0 10px;
+}
+
+.footerdistributed h3 span{
+	color: rgb(218, 2, 2);
+}
+
+/* Footer links */
+
+.footerdistributed .footerlinks{
+	color:  #ffffff;
+	margin: 0 0 20px;
+	padding: 0;
+}
+
+.footerdistributed .footerlinks a{
+	display:inline-block;
+	line-height: 1.8;
+	text-decoration: none;
+	color: white;
+}
+
+.footerdistributed .footercompanyname{
+	color:  white;
+	font-size: 14px;
+	font-weight: normal;
+	margin: 0;
+}
+
+/* Footer social icons */
+
+.footerdistributed .footericons{
+	margin-top: 20px;
+    margin-left: 25px;
+}
+
+.footerdistributed .footericons a{
+	display: inline-block;
+	width: 40px;
+	height: 40px;
+	cursor: pointer;
+	background-color:  #33383b;
+	border-radius: 10px;
+
+	font-size: 25px;
+	color: #ffffff;
+	text-align: center;
+	line-height: 46px;
+	margin-right: 4px;
+}
+
+/* Footer Right */
+
+.footerdistributed .footerright{
+	float: right;
+}
+
+.footerdistributed .footerright p{
+	display: inline-block;
+	vertical-align: top;
+	margin: 17px 0px 0px 0px;
+	color: #ffffff;
+}
+
+/* If you don't want the footer to be responsive, remove these media queries */
+
+@media (max-width: 1000px) {
+
+	.footerdistributed {
+		font: bold 16px sans-serif;
+	}
     
-  }
+	.footerdistributed .footercompanyname{
+		font-size: 15px;
+	}
+
+}
+
+@media (max-width: 720px) {
+
+	.footerdistributed{
+		padding: 50px;
+	}
+
+    .footerright{
+        text-align: center;
+    }
+
+	.footerdistributed .footerleft,
+	.footerdistributed .footerright{
+        float:none;
+		margin: 0 auto;
+	}
+
+	.footerdistributed .footerleft{
+		margin-bottom: 10px;
+        text-align: center;
+	}
+
+}

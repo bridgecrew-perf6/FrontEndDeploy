@@ -17,13 +17,8 @@ export default function Header() {
       <div className={styles.logo}>
         <Link href="/">
           <a>
-            <Image
-              src="/images/heart-attack.png"
-              alt=""
-              width="32"
-              height="32"
-            />
-            Sikkim Blood
+            
+            Blood.Sikkim.Co
           </a>
         </Link>
       </div>

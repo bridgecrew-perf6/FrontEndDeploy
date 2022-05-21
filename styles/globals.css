@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
 
 * {
   box-sizing: border-box;
@@ -8,14 +8,13 @@
 
 html,
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   line-height: 1.8;
 }
 
 a {
   text-decoration: none;
   color: steelblue;
-  
 }
 
 p {
@@ -40,25 +39,25 @@ h1 {
 .btn:hover {
   opacity: 0.9;
   transition: 2s;
-  background:#000;
+  background: #000;
 }
 
 .btn-secondary {
   font: inherit;
-  font-size: 13px;
-  background: #000;
+  font-size: 14px;
+  background: #444;
   color: #fff !important;
-  border: 0;
+  border: 1px solid black;
   border-radius: 5px;
-  padding: 5px 15px;
-  margin: 0 20px;
+  padding: 12px 25px;
+  margin: 0 10px;
   cursor: pointer;
 }
 
 .btn-secondary:hover {
   transition: 2s;
 
-background:red
+  background: black;
 }
 
 .btn-icon {
@@ -71,23 +70,18 @@ background:red
   margin-right: 5px;
 }
 
-
-.btn-center
-{
-  
-    font: inherit;
-    font-size: 13px;
-    background: #000;
-    color: #fff !important;
-    border: 0;
-    border-radius: 5px;
-    padding: 5px 15px;
-    margin: 0 20px;
-    cursor: pointer;
-    text-align: center;
- 
+.btn-center {
+  font: inherit;
+  font-size: 13px;
+  background: #000;
+  color: #fff !important;
+  border: 0;
+  border-radius: 5px;
+  padding: 5px 15px;
+  margin: 0 20px;
+  cursor: pointer;
+  text-align: center;
 }
-.divide
-{
+.divide {
   text-align: center;
 }
